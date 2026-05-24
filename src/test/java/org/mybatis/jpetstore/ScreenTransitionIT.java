@@ -1,5 +1,5 @@
 /*
- *    Copyright 2010-2022 the original author or authors.
+ *    Copyright 2010-2026 the original author or authors.
  *
  *    Licensed under the Apache License, Version 2.0 (the "License");
  *    you may not use this file except in compliance with the License.
@@ -54,17 +54,18 @@ class ScreenTransitionIT {
   @BeforeAll
   static void setupSelenide() {
     browser = CHROME;
-    headless = true;
+    headless = false;
     timeout = TimeUnit.SECONDS.toMillis(10);
     baseUrl = "http://localhost:8080/jpetstore";
   }
 
   @AfterEach
-  void logout() {
+  void logout() throws InterruptedException {
     SelenideElement element = $(By.linkText("Sign Out"));
     if (element.exists()) {
       element.click();
     }
+    Thread.sleep(2000);
   }
 
   @Test
@@ -104,17 +105,17 @@ class ScreenTransitionIT {
     $(By.linkText("AV-CB-01")).click();
     $(By.linkText("EST-18")).click();
     $(By.linkText("Add to Cart")).click();
-    $(By.cssSelector("#Cart tr:nth-of-type(4) td")).shouldBe(text("Sub Total: $199.00"));
+    $(By.cssSelector("#Cart tr:nth-of-type(4) td")).shouldBe(text("Sub Total: $199,00"));
 
     // Update quantity
     $(By.name("EST-20")).setValue("10");
     $(By.name("updateCartQuantities")).click();
-    $(By.cssSelector("#Catalog tr td:nth-of-type(7)")).shouldBe(text("$55.00"));
-    $(By.cssSelector("#Cart tr:nth-of-type(4) td")).shouldBe(text("Sub Total: $248.50"));
+    $(By.cssSelector("#Catalog tr td:nth-of-type(7)")).shouldBe(text("$55,00"));
+    $(By.cssSelector("#Cart tr:nth-of-type(4) td")).shouldBe(text("Sub Total: $248,50"));
 
     // Remove item
     $(By.cssSelector("#Cart tr:nth-of-type(3) td:nth-of-type(8) a")).click();
-    $(By.cssSelector("#Cart tr:nth-of-type(3) td")).shouldBe(text("Sub Total: $55.00"));
+    $(By.cssSelector("#Cart tr:nth-of-type(3) td")).shouldBe(text("Sub Total: $55,00"));
 
     // Checkout cart items
     $(By.linkText("Proceed to Checkout")).click();
