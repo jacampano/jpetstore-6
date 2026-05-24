@@ -8,72 +8,72 @@ MyBatis JPetStore
 
 ![mybatis-jpetstore](https://mybatis.org/images/mybatis-logo.png)
 
-JPetStore 6 is a full web application built on top of MyBatis 3, Spring 5 and Stripes.
+JPetStore 6 es una aplicación web completa construida sobre MyBatis 3, Spring 5 y Stripes.
 
-Essentials
-----------
+Aspectos esenciales
+-------------------
 
-* [See the docs](http://www.mybatis.org/jpetstore-6)
+* [Ver la documentación](http://www.mybatis.org/jpetstore-6)
 
-## Other versions that you may want to know about
+## Otras versiones que puede que quieras conocer
 
-- JPetstore on top of Spring, Spring MVC, MyBatis 3, and Spring Security https://github.com/making/spring-jpetstore
-- JPetstore with Vaadin and Spring Boot with Java Config https://github.com/igor-baiborodine/jpetstore-6-vaadin-spring-boot
-- JPetstore on MyBatis Spring Boot Starter https://github.com/kazuki43zoo/mybatis-spring-boot-jpetstore
+- JPetstore sobre Spring, Spring MVC, MyBatis 3 y Spring Security https://github.com/making/spring-jpetstore
+- JPetstore con Vaadin y Spring Boot con Java Config https://github.com/igor-baiborodine/jpetstore-6-vaadin-spring-boot
+- JPetstore sobre MyBatis Spring Boot Starter https://github.com/kazuki43zoo/mybatis-spring-boot-jpetstore
 
-## Run on Application Server
-Running JPetStore sample under Tomcat (using the [cargo-maven2-plugin](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html)).
+## Ejecutar en un servidor de aplicaciones
+Ejecución del ejemplo JPetStore en Tomcat (usando el [cargo-maven2-plugin](https://codehaus-cargo.github.io/cargo/Maven2+plugin.html)).
 
-- Clone this repository
+- Clona este repositorio
 
   ```
   $ git clone https://github.com/mybatis/jpetstore-6.git
   ```
 
-- Build war file
+- Construye el archivo WAR
 
   ```
   $ cd jpetstore-6
   $ ./mvnw clean package
   ```
 
-- Startup the Tomcat server and deploy web application
+- Arranca el servidor Tomcat y despliega la aplicación web
 
   ```
   $ ./mvnw cargo:run -P tomcat90
   ```
 
-  > Note:
+  > Nota:
   >
-  > We provide maven profiles per application server as follow:
+  > Proporcionamos perfiles de Maven por servidor de aplicaciones como se indica a continuación:
   >
-  > | Profile        | Description |
+  > | Perfil         | Descripción |
   > | -------------- | ----------- |
-  > | tomcat9        | Running under the Tomcat 9.0 |
-  > | tomee80        | Running under the TomEE 8.0(Java EE 8) |
-  > | wildfly26      | Running under the WildFly 26(Java EE 8) |
-  > | liberty-ee8    | Running under the WebSphere Liberty(Java EE 8) |
-  > | jetty          | Running under the Jetty 12 (Java EE 8) |
-  > | glassfish5 (disabled)     | Running under the GlassFish 5(Java EE 8) |
-  > | payara5        | Running under the Payara 5 (Java EE 8) |
-  > | resin          | Running under the Resin 4 |
+  > | tomcat9        | Ejecución en Tomcat 9.0 |
+  > | tomee80        | Ejecución en TomEE 8.0 (Java EE 8) |
+  > | wildfly26      | Ejecución en WildFly 26 (Java EE 8) |
+  > | liberty-ee8    | Ejecución en WebSphere Liberty (Java EE 8) |
+  > | jetty          | Ejecución en Jetty 12 (Java EE 8) |
+  > | glassfish5 (deshabilitado) | Ejecución en GlassFish 5 (Java EE 8) |
+  > | payara5        | Ejecución en Payara 5 (Java EE 8) |
+  > | resin          | Ejecución en Resin 4 |
 
-- Run application in browser http://localhost:8080/jpetstore/
-- Press Ctrl-C to stop the server.
+- Ejecuta la aplicación en el navegador http://localhost:8080/jpetstore/
+- Pulsa Ctrl-C para detener el servidor.
 
-## Run on Docker
+## Ejecutar en Docker
 ```
 docker build . -t jpetstore
 docker run -p 8080:8080 jpetstore
 ```
-or with Docker Compose:
+o con Docker Compose:
 ```
 docker compose up -d
 ```
 
-## Try integration tests
+## Probar los tests de integración
 
-Perform integration tests for screen transition.
+Ejecuta los tests de integración de transición entre pantallas.
 
 ```
 $ ./mvnw clean verify -P tomcat9
