@@ -23,6 +23,7 @@ import static com.codeborne.selenide.Condition.value;
 import static com.codeborne.selenide.Configuration.baseUrl;
 import static com.codeborne.selenide.Configuration.browser;
 import static com.codeborne.selenide.Configuration.headless;
+import static com.codeborne.selenide.Configuration.remote;
 import static com.codeborne.selenide.Configuration.timeout;
 import static com.codeborne.selenide.Selenide.$;
 import static com.codeborne.selenide.Selenide.$$;
@@ -55,6 +56,7 @@ class ScreenTransitionIT {
   static void setupSelenide() {
     browser = CHROME;
     headless = false;
+    remote = "http://localhost:4444";
     timeout = TimeUnit.SECONDS.toMillis(10);
     baseUrl = "http://localhost:8080/jpetstore";
   }
