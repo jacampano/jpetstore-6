@@ -15,7 +15,7 @@
  */
 package org.mybatis.jpetstore;
 
-import static com.codeborne.selenide.Browsers.CHROME;
+import static com.codeborne.selenide.Browsers.SAFARI;
 import static com.codeborne.selenide.CollectionCondition.size;
 import static com.codeborne.selenide.Condition.empty;
 import static com.codeborne.selenide.Condition.text;
@@ -54,7 +54,7 @@ class ScreenTransitionIT {
 
   @BeforeAll
   static void setupSelenide() {
-    browser = CHROME;
+    browser = SAFARI;
     headless = false;
     remote = "http://localhost:4444";
     timeout = TimeUnit.SECONDS.toMillis(10);
